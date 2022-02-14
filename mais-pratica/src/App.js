@@ -12,6 +12,12 @@ const Paragraph = (props) =>{
 
 }
 
+const Opchange =  (props) =>{
+  return(
+   <option> {props.change} </option>
+  )
+}
+
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
 
 const reducer = (state, action) =>{
@@ -38,6 +44,8 @@ const reducer = (state, action) =>{
 
 function App() {
   
+  const [cidade, setcidade] = useState('')
+    
   const [data, dispatch] = useReducer(reducer,
      { loading:true,
           data: {} } )
@@ -75,7 +83,18 @@ function App() {
 
      <hr></hr>
 
-     {JSON.stringify(data)}
+       <p className='more'> {JSON.stringify(data)} </p>
+
+        <hr></hr>
+
+        <select   state={cidade} onChange={e=> setcidade(e.target.value)}>
+        <Opchange change='Porto Alegre'    />
+        <Opchange change='Floarianopolis' />
+        <Opchange change='Rio de janeiro'  />
+        <Opchange change='São Paulo'    />
+        </select>
+          
+          <p> Who city you want living ? {cidade} </p>
     </div>
   );
 }
