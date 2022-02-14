@@ -3,6 +3,7 @@ import './App.css'
 
 
 
+
 const Paragraph = (props) =>{
   return(
     <p>{props.text}
@@ -13,14 +14,13 @@ const Paragraph = (props) =>{
 
 
 function App() {
-  
+  // set data of usestate
   const [num , setnum] = useState(0)
-  const increased = () =>{
+  const Increased = () =>{
      setnum(num+1)
   }
   
-  const decrement =  () =>{
-
+  const Decrement =  () =>{
      if(num > 0){
        setnum(num-1)
      }
@@ -32,8 +32,8 @@ function App() {
     <div className="App">
      <h1> Practice more react!!!</h1>
      <Paragraph text={num} />
-     <button onClick={increased}>+</button>
-     <button onClick={decrement}>-</button>  
+     <button  onClick={Increased} >+ </button>
+     <button onClick={Decrement}  >-</button>  
     </div>
   );
 }
