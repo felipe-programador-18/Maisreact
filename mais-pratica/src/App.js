@@ -44,6 +44,9 @@ const reducer = (state, action) =>{
 
 function App() {
   
+  
+  
+  
   const [cidade, setcidade] = useState('')
     
   const [data, dispatch] = useReducer(reducer,
