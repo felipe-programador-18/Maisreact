@@ -3,7 +3,6 @@ import './App.css'
 import axios from 'axios'
 
 
-
 const Paragraph = (props) =>{
   return(
     <p>{props.text}
@@ -11,7 +10,6 @@ const Paragraph = (props) =>{
   )
 
 }
-
 const Opchange =  (props) =>{
   return(
    <option> {props.change} </option>
@@ -34,33 +32,38 @@ const reducer = (state, action) =>{
       loading: action.data
     }
   }
-
-
-
-
   return state
 }
 
 
+const Useget =  Url => {
+  const [data, dispatch] = useReducer(reducer,
+    { loading:true,
+         data: {} } )
+
+         useEffect(() =>{
+          dispatch({type:'REQUEST'})
+          axios
+          .get(Url)
+          .then(res => {
+            dispatch({type:'SUCCESS', data: res.data})
+          })
+        }, []) 
+        return data
+}
+
+
+
+
+
+
+
 function App() {
   
-  
-  
+  const data = Useget(Url)
   
   const [cidade, setcidade] = useState('')
     
-  const [data, dispatch] = useReducer(reducer,
-     { loading:true,
-          data: {} } )
-  
-  useEffect(() =>{
-    dispatch({type:'REQUEST'})
-    axios
-    .get(Url)
-    .then(res => {
-      dispatch({type:'SUCCESS', data: res.data})
-    })
-  }, [])
   
   // set data of usestate
   const [num , setnum] = useState(0)
