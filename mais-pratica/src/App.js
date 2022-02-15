@@ -1,26 +1,13 @@
 import {React,useState} from 'react'
 import './App.css'
 import Useget from './Useget'
+import Usepost from './Usepost'
+import Opchange from './opchange'
+import Paragraph from './para'
 
 
-const Paragraph = (props) =>{
-  return(
-    <p>{props.text}
-     </p>
-  )
-
-}
-const Opchange =  (props) =>{
-  return(
-   <option> {props.change} </option>
-  )
-}
 
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
-
-
-
-
 
 
 function App() {
@@ -28,6 +15,14 @@ function App() {
   const data = Useget(Url)
   const datatwo =  Useget("https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json")
   
+  const [postDa, post] = Usepost(Url) 
+   
+  const Savepost = () =>{
+    post({poupanca:1000, descricao:'poupanca'})
+  }
+  
+
+
   const [cidade, setcidade] = useState('')
     
   
@@ -61,6 +56,8 @@ function App() {
         
         <p>This is another apirest, but with same Url {JSON.stringify(datatwo)}  </p>
         <hr></hr>
+        <hr></hr>
+       
         <select   state={cidade} onChange={e=> setcidade(e.target.value)}>
         <Opchange change='Porto Alegre'    />
         <Opchange change='Floarianopolis' />
@@ -69,6 +66,9 @@ function App() {
         </select>
           
           <p> city you want living is : {cidade} </p>
+          <hr></hr>
+          <p>testing about Api rest with post {JSON.stringify(postDa)}</p>  
+        <button onClick={Savepost}>SAVE</button>
     </div>
   );
 }
