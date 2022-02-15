@@ -94,7 +94,7 @@ function App() {
         <Opchange change='São Paulo'    />
         </select>
           
-          <p> Who city you want living ? {cidade} </p>
+          <p> city you want living is : {cidade} </p>
     </div>
   );
 }
