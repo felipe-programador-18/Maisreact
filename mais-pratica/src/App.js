@@ -1,6 +1,6 @@
-import {React,useState, useReducer, useEffect} from 'react'
+import {React,useState} from 'react'
 import './App.css'
-import axios from 'axios'
+import Useget from './Useget'
 
 
 const Paragraph = (props) =>{
@@ -18,41 +18,6 @@ const Opchange =  (props) =>{
 
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
 
-const reducer = (state, action) =>{
-  
-  if(action.type === 'REQUEST'){
-    return {
-      ...state,
-      loading: true
-    }
-  }
-  if(action.type === 'SUCCESS'){
-    return {
-      ...state,
-      loading: action.data
-    }
-  }
-  return state
-}
-
-
-const Useget =  Url => {
-  const [data, dispatch] = useReducer(reducer,
-    { loading:true,
-         data: {} } )
-
-         useEffect(() =>{
-          dispatch({type:'REQUEST'})
-          axios
-          .get(Url)
-          .then(res => {
-            dispatch({type:'SUCCESS', data: res.data})
-          })
-        }, []) 
-        return data
-}
-
-
 
 
 
@@ -61,6 +26,7 @@ const Useget =  Url => {
 function App() {
   
   const data = Useget(Url)
+  const datatwo =  Useget("https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json")
   
   const [cidade, setcidade] = useState('')
     
@@ -92,7 +58,9 @@ function App() {
        <p className='more'> {JSON.stringify(data)} </p>
 
         <hr></hr>
-
+        
+        <p>This is another apirest, but with same Url {JSON.stringify(datatwo)}  </p>
+        <hr></hr>
         <select   state={cidade} onChange={e=> setcidade(e.target.value)}>
         <Opchange change='Porto Alegre'    />
         <Opchange change='Floarianopolis' />
