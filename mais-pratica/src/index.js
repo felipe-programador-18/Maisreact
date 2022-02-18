@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+const Number = [1,2,3,4,5]
+const caught = Number.map((Number)  =>
+      <li>{Number}</li>
+)
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <ul> {caught} </ul>
   </React.StrictMode>,
   document.getElementById('root')
 );
