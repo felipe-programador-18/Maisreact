@@ -10,6 +10,8 @@ import Paragraph from './para'
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
 
 
+
+
 function App() {
   
   const data = Useget(Url)
@@ -21,7 +23,7 @@ function App() {
     post({poupanca:1000, descricao:'poupanca'})
   }
   
-
+  const newTest = Useget("https://jsonplaceholder.typicode.com/users")
 
   const [cidade, setcidade] = useState('')
     
@@ -69,6 +71,18 @@ function App() {
           <hr></hr>
           <p>testing about Api rest with post {JSON.stringify(postDa)}</p>  
         <button onClick={Savepost}>SAVE</button>
+
+          <p> {JSON.stringify(newTest)} </p>
+         
+         <ul>
+         {newTest.map((test) =>{
+           return (
+             <li> {test.name} </li>
+           )
+         })}
+         
+         </ul>
+
     </div>
   );
 }
