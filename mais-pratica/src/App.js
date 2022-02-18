@@ -15,6 +15,11 @@ const Together = Numbering.map((Numbering) =>
 )
 
 
+
+
+  
+
+
 function App() {
   
   const data = Useget(Url)
@@ -26,7 +31,8 @@ function App() {
     post({poupanca:1000, descricao:'poupanca'})
   }
   
-  const newTest = Useget("https://jsonplaceholder.typicode.com/users")
+  //flag this to make new test!!
+  const newTest = Useget("https://jsonplaceholder.typicode.com/users" )
 
   const [cidade, setcidade] = useState('')
     
@@ -52,8 +58,9 @@ function App() {
      <button  onClick={Increased} >+ </button>
      <button onClick={Decrement}  >-</button>  
      
-     <ul> {Together}  </ul>
+   
 
+     <ul>{Together} </ul>
      <hr></hr>
 
        <p className='more'> {JSON.stringify(data)} </p>
@@ -84,6 +91,8 @@ function App() {
          }
          
          </ul>
+
+      
 
     </div>
   );
