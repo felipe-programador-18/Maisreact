@@ -9,7 +9,10 @@ import Paragraph from './para'
 
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
 
-
+const Numbering = [10,20,30,40]
+const Together = Numbering.map((Numbering) =>
+   <li>{Numbering}</li>
+)
 
 
 function App() {
@@ -48,7 +51,8 @@ function App() {
      <Paragraph text={num} />
      <button  onClick={Increased} >+ </button>
      <button onClick={Decrement}  >-</button>  
-
+     
+     <ul> {Together}  </ul>
 
      <hr></hr>
 
