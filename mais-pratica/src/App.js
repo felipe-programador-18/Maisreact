@@ -75,11 +75,9 @@ function App() {
           <p> {JSON.stringify(newTest)} </p>
          
          <ul>
-         {newTest.map((test) =>{
-           return (
-             <li> {test.name} </li>
-           )
-         })}
+         {
+           <li> {JSON.stringify(newTest)} </li>
+         }
          
          </ul>
 
