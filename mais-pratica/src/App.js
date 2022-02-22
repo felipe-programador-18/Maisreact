@@ -14,7 +14,10 @@ const Together = Numbering.map((Numbering) =>
    <li>{Numbering}</li>
 )
 
-
+const Peer = [1,2,3,4,5,6]
+const Union = Peer.map((Peer) =>{
+  return <li> {Peer *2} </li>
+})
 
 
   
@@ -58,8 +61,8 @@ function App() {
      <button  onClick={Increased} >+ </button>
      <button onClick={Decrement}  >-</button>  
      
-   
-
+      <ul> {Union} </ul>
+      
      <ul>{Together} </ul>
      <hr></hr>
 
