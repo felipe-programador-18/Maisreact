@@ -7,6 +7,7 @@ import Paragraph from './para'
 
 
 
+
 const Url= "https://moreonetime-90b5b-default-rtdb.firebaseio.com/movimentacao.json"
 
 const Numbering = [10,20,30,40]
@@ -19,6 +20,11 @@ const Union = Peer.map((Peer) =>{
   return <li> {Peer *2} </li>
 })
 
+const Getop = (props) =>{
+  return(
+    <option> {props.tara} </option>
+  )
+}
 
   
 
@@ -38,7 +44,8 @@ function App() {
   const newTest = Useget("https://jsonplaceholder.typicode.com/users" )
 
   const [cidade, setcidade] = useState('')
-    
+   
+  const[re, setrem] = useState('')
   
   // set data of usestate
   const [num , setnum] = useState(0)
@@ -82,6 +89,25 @@ function App() {
         </select>
           
           <p> city you want living is : {cidade} </p>
+
+         <select une= {re} onChange={e=> setrem(e.target.value)}>
+         <Getop tara='1'    />
+         <Getop tara='2'     />
+         <Getop  tara='3'   />
+         <Getop  tara='4'   />
+         <Getop tara='5'  />
+         
+         </select>
+           
+         <p>voce selecionou {re}</p>
+
+
+
+
+
+
+
+
           <hr></hr>
           <p>testing about Api rest with post {JSON.stringify(postDa)}</p>  
         <button onClick={Savepost}>SAVE</button>
